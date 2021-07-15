@@ -1,3 +1,8 @@
+"""
+2021.07.14
+SSAFY StartCamp day01
+"""
+
 student = {'강동옥':28, '김도훈':27}
 
 student['양명균'] = 99

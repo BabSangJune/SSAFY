@@ -1,3 +1,8 @@
+"""
+2021.07.14
+SSAFY StartCamp day01
+"""
+
 greeting = '안녕하세요. 저는 부울경 챗봇입니다.'
 
 print(greeting)

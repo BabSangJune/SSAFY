@@ -10,4 +10,4 @@ USD = data.select_one('#exchangeList > li.on > a.head.usd > div > span.value')
 result = USD.text
 #print(result)
 
-print(f'현재의 코스피 지수는 {result}입니다.')
+print(f'USD 환율은 {result}입니다.')

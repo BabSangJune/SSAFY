@@ -1,3 +1,8 @@
+"""
+2021.07.14
+SSAFY StartCamp day01
+"""
+
 import random
 
 

@@ -1,3 +1,8 @@
+"""
+2021.07.14
+SSAFY StartCamp day01
+"""
+
 dust = 90
 
 if dust > 150:
