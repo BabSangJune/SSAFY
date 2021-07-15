@@ -1,3 +1,9 @@
+"""
+2021.07.15
+SSAFY StartCamp day02
+기초 형 강의
+"""
+
 # # 숫자
 # number1 = 3      #정수
 # number2 = 3.14   #실수
@@ -11,7 +17,7 @@
 # string1 = '문자열'
 # string2 = "문자열"
 # print(type(string1))
-# print(type(string2))
+# print(type(string2))의
 
 # # 참/거짓 (boolean)
 # # 참/거짓 (Boolean)

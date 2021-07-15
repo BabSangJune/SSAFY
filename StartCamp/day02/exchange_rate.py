@@ -1,6 +1,10 @@
-from bs4.element import ResultSet
-import requests
+"""
+2021.07.15
+SSAFY StartCamp day02
+환율 정보 크롤링 실습
+"""
 
+import requests
 from bs4 import BeautifulSoup
 
 url = 'https://finance.naver.com/marketindex/?tabSel=exchange#tab_section'
@@ -11,3 +15,4 @@ result = USD.text
 #print(result)
 
 print(f'USD 환율은 {result}입니다.')
+

@@ -1,3 +1,9 @@
+"""
+2021.07.15
+SSAFY StartCamp day02
+크롤링 강의
+"""
+
 import requests
 from bs4 import BeautifulSoup
 
