@@ -15,4 +15,3 @@ result = USD.text
 #print(result)
 
 print(f'USD 환율은 {result}입니다.')
-
