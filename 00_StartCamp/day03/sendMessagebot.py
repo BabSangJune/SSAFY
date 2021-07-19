@@ -7,7 +7,7 @@ SSAFY StartCamp day03
 
 import requests
 
-TOKEN = '1686812122:AAHnjgLNUbnukFJAHYgBgH2vEwHhx_sQB8I'
+TOKEN = ''
 APP_URL = f'https://api.telegram.org/bot{TOKEN}'
 
 #응답 내용 저장하기

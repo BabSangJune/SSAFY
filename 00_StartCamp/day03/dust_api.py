@@ -6,7 +6,7 @@ SSAFY StartCamp day03
 
 import requests
 
-key = '3DUZcyc5YwQFB3Oxl0095ZLqjXTCjbxrrovhccNdCjFsOmMWv5gwYvjJNrs1sNBJsNZasKO2dmErtTW24SucZw%3D%3D'
+key = ''
 local = '부산'
 url = f'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey={key}&sidoName={local}&returnType=json'
 

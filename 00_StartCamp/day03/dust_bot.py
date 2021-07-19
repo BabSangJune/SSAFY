@@ -6,7 +6,7 @@ SSAFY StartCamp day03
 
 import requests
 
-key = '3DUZcyc5YwQFB3Oxl0095ZLqjXTCjbxrrovhccNdCjFsOmMWv5gwYvjJNrs1sNBJsNZasKO2dmErtTW24SucZw%3D%3D'
+key = ''
 local = '부산'
 url = f'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?serviceKey={key}&sidoName={local}&returnType=json'
 
@@ -15,7 +15,7 @@ result = requests.get(url).json()
 dust = result['response']['body']['items'][2]['pm10Value']
 #미세먼지 가지고오기
 
-TOKEN = '1686812122:AAHnjgLNUbnukFJAHYgBgH2vEwHhx_sQB8I'
+TOKEN = ''
 APP_URL = f'https://api.telegram.org/bot{TOKEN}'
 
 #응답 내용 저장하기
