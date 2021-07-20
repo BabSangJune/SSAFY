@@ -22,5 +22,5 @@
 num = int(input())
 
 for i in range(1, num+1):
-    print(i)
+    print(i) #, end='' 줄바꿈 없음
 
