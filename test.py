@@ -2,7 +2,10 @@
 연습장
 """
 
-word = input()
+word = 'apple'
+reverse = ''
 
-# 아래에 코드를 작성하시오.
-print(word[4:1:-1])
+for i in word:
+    reverse = i + reverse
+
+print(reverse)
