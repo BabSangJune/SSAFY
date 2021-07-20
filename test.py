@@ -2,10 +2,8 @@
 연습장
 """
 
-word = 'apple'
-reverse = ''
+score = [80, 89, 99, 83]
 
-for i in word:
-    reverse = i + reverse
+avg = sum(score) / len(score)
 
-print(reverse)
+print(avg)

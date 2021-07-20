@@ -7,3 +7,7 @@
 
 #01_study/01_python/.ipynb_checkpoints 내 ipynb 무시
 01_study/01_python/.ipynb_checkpoints/*.ipynb
+
+#jupyter check points
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
