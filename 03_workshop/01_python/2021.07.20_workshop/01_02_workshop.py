@@ -18,16 +18,12 @@ numbers = [
 
 numbers.sort()
 
-def finding(numbers):
-    n = len(numbers)
-    if n % 2 == 1:
-        result = numbers[int((n - 1) / 2)]
+n = len(numbers)
+if n % 2 == 1:
+    result = numbers[int((n - 1) / 2)]
 
-    else:
-        result = (numbers[int(n / 2) - 1] + numbers[int(n / 2)]) / 2
-
-    return result
+else:
+    result = (numbers[int(n / 2) - 1] + numbers[int(n / 2)]) / 2
 
 
-
-print(finding(numbers))
+print(result)
