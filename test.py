@@ -63,12 +63,31 @@ for key, value in st.items():
 # # *args, **kwargs
 
 
-def my_avg(*num):
-    num_avg = 0
-    for i in num:
-        num_avg += i
-    return num_avg / len(num)
+# def snail(height, day, night):
+#     one_day = day - night #하루 움직이는 거리
+#     cnt = height // one_day
+#     arrive = 0
+
+#     for i in range(1, cnt+1):
+#         if cnt - one_day * i == 0:
+#             arrive = height // one_day
+
+#     return arrive
+
+    
+# print(snail(100, 5, 2))
 
 
+# def snail(height, day, night):
+#     arrive = height // (day - night)
+#     return arrive
 
-print(my_avg(77, 83, 95, 80, 70)) #81.0
+    
+# print(snail(100, 5, 2))
+
+change = 67000
+
+print(change % 50000)  # 50,000원 지폐
+ten_count = (change % 50000) // 10000  # 10,000원 지폐
+five_count = (change % 10000) // 5000  # 5,000원 지폐
+one_count = (change % 5000) // 1000  # 1,000원 지폐
