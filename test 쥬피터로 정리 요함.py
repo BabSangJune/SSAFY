@@ -85,9 +85,24 @@ for key, value in st.items():
     
 # print(snail(100, 5, 2))
 
-change = 67000
+# change = 67000
 
-print(change % 50000)  # 50,000원 지폐
-ten_count = (change % 50000) // 10000  # 10,000원 지폐
-five_count = (change % 10000) // 5000  # 5,000원 지폐
-one_count = (change % 5000) // 1000  # 1,000원 지폐
+# print(change % 50000)  # 50,000원 지폐
+# ten_count = (change % 50000) // 10000  # 10,000원 지폐
+# five_count = (change % 10000) // 5000  # 5,000원 지폐
+# one_count = (change % 5000) // 1000  # 1,000원 지폐
+
+# 1부터 사용자가 입력한 양의 정수까지의 총합을 구하는 코드를 작성하시오.
+# n = 0
+# total = 0
+# user_input = int(input())
+
+# while n <= user_input: #3 1 2
+#     total += n # 0 + 0, 0 + 1, 1 + 2
+#     n += 1 # 0 + 1, 1+1 =2, 2 + 1 =3
+
+# print(total)
+
+members = ['민희', '영희', '철수']
+for idx, member in enumerate(members, start=1):
+	print(idx, member)
