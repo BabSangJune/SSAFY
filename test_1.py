@@ -103,6 +103,64 @@ for key, value in st.items():
 
 # print(total)
 
-members = ['민희', '영희', '철수']
-for idx, member in enumerate(members, start=1):
-	print(idx, member)
+# members = ['민희', '영희', '철수']
+# for idx, member in enumerate(members, start=1):
+# 	print(idx, member)
+
+# def T():
+#     print("트루")
+#     return True
+
+# def F():
+#     print("펄쓰")
+#     return False
+
+
+# if T() and T():
+#     print("이거나옴?")
+
+# if T() and F():
+#     print("이거나옴?")
+
+# if F() and T():
+#     print("이거나옴?")
+
+# if F() and F():
+#     print("이거나옴?")
+
+# if T() or T():
+#     print("이거나옴?")
+
+# if T() or F():
+#     print("이거나옴?")
+
+# if F() or T():
+#     print("이거나옴?")
+
+# if F() or F():
+#     print("이거나옴?")
+
+
+
+# arr = [1,2,3]
+
+# if T() and arr[5]:
+#     print("이거 에러나나나?")
+
+# if F() and arr[5]:
+#     print("이거 에러나나나?")
+
+# if arr[5] and T():
+#     print("이거 에러나냐/")
+
+# if arr[5] and F():
+#     print("이거 에러나냐/")
+
+dusts = {'서울' : 72, '대전' : 82, '구미' : 29, '광주' :45}
+result = {}
+for key, value in dusts.items():
+    
+    if value > 70:
+        result[key] = value
+
+print(result)

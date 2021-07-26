@@ -11,12 +11,30 @@
 출력 :
 """
 
+# def get_secret_word(nums):
+#     cnt = ''
+#     for i in range(len(nums)):
+#         cnt += chr(nums[i])
+
+#     return f'\'{cnt}\''
+
+
 def get_secret_word(nums):
     cnt = ''
-    for i in range(len(nums)):
-        cnt += chr(nums[i])
+    for i in nums:
+        cnt += chr(i)
 
     return f'\'{cnt}\''
+
+# def get_secret_word(nums): # 확인하기
+#     cnt = ''
+#     ans_list = []
+#     for i in nums:
+#         cnt += chr(i)
+#         ans_list.append(chr(i))
+
+#     return f'\'{cnt}\''
+
 
 
 print(get_secret_word([83, 115, 65, 102, 89])) #'SsAfY'

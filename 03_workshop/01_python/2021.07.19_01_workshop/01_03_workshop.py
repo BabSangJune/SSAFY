@@ -11,12 +11,19 @@
 출력 : 55
 """
 
-num = 0
-total = 0
+# num = 0
+# total = 0
+# n = int(input())
+
+# while num <= n:
+#     total += num
+#     num += 1
+
+# print(total)
+
 n = int(input())
+tot = 0
 
-while num <= n:
-    total += num
-    num += 1
-
-print(total)
+for i in range(1, n+1):
+    tot += i
+print(tot)
