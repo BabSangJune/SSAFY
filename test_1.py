@@ -156,11 +156,19 @@ for key, value in st.items():
 # if arr[5] and F():
 #     print("이거 에러나냐/")
 
-dusts = {'서울' : 72, '대전' : 82, '구미' : 29, '광주' :45}
-result = {}
-for key, value in dusts.items():
+# dusts = {'서울' : 72, '대전' : 82, '구미' : 29, '광주' :45}
+# result = {}
+# for key, value in dusts.items():
     
-    if value > 70:
-        result[key] = value
+#     if value > 70:
+#         result[key] = value
 
-print(result)
+# print(result)
+
+a = 10
+def func1():
+
+    global a
+    a = 3
+
+print(a)

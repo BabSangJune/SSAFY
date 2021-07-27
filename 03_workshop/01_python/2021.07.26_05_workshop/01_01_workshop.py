@@ -1,5 +1,5 @@
 """
-날짜 : 2021.07.22
+날짜 : 2021.07.26
 학습 : SSAFY 01_01_workshop
 제목 : 1. 평균 점수 구하기
 문제 :
@@ -18,7 +18,14 @@ def get_dict_avg(dic) :
         cnt += 1
     return tot/cnt
     
-
+def get_dict_avg2(dic) :
+    tot = 0
+    
+    for score in dic.values() :
+        tot += score
+        
+    return tot / len(dic)
+    
 
 
 print(get_dict_avg({
