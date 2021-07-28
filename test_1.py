@@ -165,10 +165,11 @@ for key, value in st.items():
 
 # print(result)
 
-a = 10
-def func1():
+# a = 10
+# def func1():
+#
+#     global a
+#     a = 3
+#
+# print(a)
 
-    global a
-    a = 3
-
-print(a)

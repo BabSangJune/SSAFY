@@ -15,17 +15,29 @@
 low_and_up('apple') # aPpLe
 low_and_up('banana') # banana
 '''
+#쌤꺼(upper lower 안쓰고)
+def my_lower(word):
+    #word가 대문자라면 요때 수정을 해야겠다.
+    if 'A' <= word <= 'Z':
+        return chr(ord(word)+32)
+    #word 소문자라면 의미 없고 그냥 리턴
+    return word
+
+def my_upper(word):
+    if 'a' <= word <= 'z':
+        return chr(ord(word)-32)
+    return word
 
 
-def low_and_up(word):
-    result = ''
-    for i in range(len(word)):
-        if i % 2 == 1:
-            result += word[i].upper()
-        if i % 2 == 0:
-            result += word[i]
+# def low_and_up(word):
+#     result = ''
+#     for i in range(len(word)):
+#         if i % 2 == 1:
+#             result += word[i].upper()
+#         if i % 2 == 0:
+#             result += word[i].lower()
 
-    return result
+#     return result
 
 
 print(low_and_up('apple'))

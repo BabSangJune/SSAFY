@@ -14,20 +14,42 @@ duplicated_letters('apple') #['p']
 duplicated_letters('banana') #['a', 'n']
 '''
 
+#쌤꺼 1 set 이용 중복 처리
+# def duplicated_letters(words):
+#     ans = []
 
-def duplicated_letters(letter): #set으로 만들어서, if 하나 더 result 알파벳이 있으면 안넣는다.
-    result = []
-    for i in letter:
-        if letter.count(i) >= 2:
-            if i in result:
-                continue
-            else:
-                result += i
-    return result
+#     for word in words:
+#         if words.count(word) > 1:
+#             ans.append(word)
+
+#     return list(set(ans))
+
+def duplicated_letters(words):
+    ans = []
+    for word in words:
+        if words.count(word) > 1 and word not in ans:
+            ans.append(word)
+
+    return ans
+
+    # return list({word for word in words if words.count(word) > 1})
+
+#내꺼
+# def duplicated_letters(letter): #set으로 만들어서, if 하나 더 result 알파벳이 있으면 안넣는다.
+#     result = []
+#     for i in letter:
+#         if letter.count(i) >= 2:
+#             if i in result:
+#                 continue
+#             else:
+#                 result += i
+#     return result
 
 
     # print(result)
 
+
+# 못푼거
 # def duplicated_letters(letter):
 #     result = []
 #     for j in letter:

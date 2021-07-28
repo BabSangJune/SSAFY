@@ -15,7 +15,16 @@
 lonely([1, 1, 3, 3, 0, 1, 1]) #[1, 3, 0, 1]
 lonely([4, 4, 4, 3, 3]) # [4, 3]
 '''
-
+# 쌤꺼
+# 이건 주의
+arr = [1, 2, 3, 4, 5]
+for i in range(len(arr)-1, 0 , -1):
+    if arr[i-1] == arr [i]:
+        pass
+    #지우는 작업 remove든 pop이든 다 괜찮음
+    #이거도 가능
+    
+  
 
 def lonely(lst):
     answer = [lst[0]]
