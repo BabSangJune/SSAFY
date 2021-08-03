@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h4 {
+  font-size: 20px ; font-family: Arial;
+  font-weight: bold;
+}
+
+p {
+  font-family: Arial;
+  
+}
+
+.card {
+  border: 2px dashed black;
+}
+
+.container {
+  width: 700px;
+  margin: 200px auto;
+}
+
+.card-nav {
+  width: 700px;
+  background-color: rgba(135, 234, 252, 50%);
+  text-align: center;
+}
+
+.card-header {
+  height: 400px;
+  margin-left: 18px;
+  margin-top: 18px;
+}
+
+.card-img {
+  width: 664px; height: 330px;
+  display: block;
+  /* margin-bottom: -5px; */
+}
+
+.card-img-description {
+  width: 664px; height: 70px;
+  color: white;
+  background-color: rgba(86, 141, 245, 0.5);
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.card-body {
+  width: 664px;
+  margin-top: 36px;
+  margin-left: 18px;
+}
+
+.card-body-title {
+  width: 664px;
+  /* display: flex;
+  justify-content: space-between */
+  
+}
+
+.card-body-title h4 {
+  display: inline;
+}
+
+.card-body-title p {
+  padding-top: 9px;
+  display: inline;
+  float: right;
+}
+
+.card-body-content {
+  background-color: rgba(135, 163, 241, 0.5);
+  margin: 18px 0;
+  padding: 10px;
+  font-size: 15px;
+}
+
+.card-footer {
+  color: aliceblue;
+  background-color: rgba(27, 119, 81, 0.5);
+  text-align: right;
+  padding: 10px;
+}
+
