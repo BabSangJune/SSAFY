@@ -59,7 +59,7 @@ for tc in range(1, T+1):
         if j % 2 == 0 and lst_result[j] == 0: #j가 짝수이면서 인덱스 값이 0이면
             lst_result[j] += max_num #lst_result 해당 자리에 max_num 넣고
 
-    nums.remove(max_num) #nums에서 max_num 삭제
+    # nums.remove(max_num) #nums에서 max_num 삭제
 
 
     for i in range(N): #똑같이
@@ -69,7 +69,7 @@ for tc in range(1, T+1):
         if j % 2 == 1 and lst_result[j] == 0:
             lst_result[j] += min_num
 
-    nums.remove(min_num)
+    # nums.remove(min_num)
 
     print(lst_result[0:10])
 

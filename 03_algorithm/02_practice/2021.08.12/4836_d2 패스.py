@@ -58,6 +58,7 @@ for tc in range(1, T+1):
     No_area = int(input()) #영역 갯수
     big_area = [[0] * 10 for _ in range(10)] #10 * 10 배열 만들기
     tmp_area = [0] * No_area
+
     for i in range(No_area):
         tmp_area[i] = list(map(int, input().split()))
         if tmp_area[i][4] == 1:
