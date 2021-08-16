@@ -34,37 +34,54 @@
 #3 3
 """
 
+#나중에 10 400으로 바꾸기
+
+def My_max_num(num1, num2):
+    if num1 < num2:
+        return num2
+    else:
+        return num1
+
+
 T = int(input()) #tc 갯수
 
 for tc in range(1, T+1):
-    N = int(input()) #노선 갯수
-    empty_lst = [[0] * 5001 for _ in range(N)] #5천개의 정류장 노선 수 만큼
+    N = int(input()) #사람 수
+    empty_lst = [[0] * 401 for _ in range(N)] #사람 수 만큼 2차원 list 만들기
 
     for n in range(N):
-        route_start, route_end = map(int, input().split()) # n번 노선 정류장 처음과 끝
+        start_room, end_room = map(int, input().split()) #출발방, 도착방
+        if start_room <= end_room:
+            for i in range(start_room, end_room+1): #출발방에서, 도착방까지 empty_lst에 더하기
+                empty_lst[n][i] += 1
+        else:
+            for i in range(end_room, start_room+1): #end_room 이 start_room 보다 작으면
+                empty_lst[n][i] += 1
 
-        for i in range(route_start, route_end+1):
-            empty_lst[n][i] += 1 #n번 노선 다니는 정류장을 1로 바꾸기
+    max_time = 0
+    for j in range(400): #1, 401, 2
+        spend_time = 0
+        for i in range(len(empty_lst)):
+            spend_time += empty_lst[i][j]
+            spend_time += empty_lst[i][j+1]
 
-    cp_stop = int(input()) #비교 할 노선 갯수
-    result = [] #최종 값 저장
-    # cnt_stop = [0] * 5001  # n번 노선이 cp_stop을 지나면 카운트 할 리스트 이거 여기있으면 초기화 안되서 중복 값이 들어가면 지랄남
+        max_time = My_max_num(max_time, spend_time)
 
-    for stop in range(cp_stop): #cp_stop 만큼 no_stop input 받아오기
-        cnt_stop = [0] * 5001  # n번 노선이 cp_stop을 지나면 카운트 할 리스트
-        no_stop = int(input()) #비교 할 노선 번호
+    print('#{} {}'.format(tc, int(max_time / 2)))
 
-        for i in range(N): #노선 번호 가지고 오기
-            if empty_lst[i][no_stop] == 1: #i번 노선에 no_stop이 지나가면
-                cnt_stop[no_stop] += 1 # cnt_stop에 카운트
 
-        result += [cnt_stop[no_stop]] #12개 중 5개 맞음.. 왜 ???
 
-    # for i in range(5001): #0 제외 하고 result에 넣기 #0개 맞음 no_stop이 노선 안에 안지나가면 0 출력 해야함
-    #     if cnt_stop[i] != 0:
-    #         result += [cnt_stop[i]]
+'''
+1
+4
+10 20
+30 40
+50 60
+70 80
+'''
 
-    print('#{}'.format(tc), end=' ')
-    print(*result)
+
+
+
 
 
