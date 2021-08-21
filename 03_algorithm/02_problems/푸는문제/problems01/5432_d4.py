@@ -36,37 +36,21 @@
 
 """
 
-T = int(input()) #tc 갯수
 
+T = int(input())
 for tc in range(1, T+1):
-    N = int(input()) #노선 갯수
-    empty_lst = [[0] * 5001 for _ in range(N)] #5천개의 정류장 노선 수 만큼
+    bracket = input() #
+    stack = [] #스택 쌓을 곳
+    cnt_bar = 0 #bar 갯수
+    for i in range(len(bracket)): #bracket 순서대로 가지고오기
+        if bracket[i] == '(': #'('이면 스택 쌓기 
+            stack.append(bracket[i])
+            cnt_bar += 1 #bar 하나 추가
+        elif bracket[i] == ')' and bracket[i-1] == '(': #() 이면 레이저이기에
+            stack.pop() #( 하나 빼고
+            cnt_bar -= 1 #위에서 (일때 바 이던 레이저 이던 상관없이 추가 한거라 레이저면 바 -1
+            cnt_bar += len(stack) #레이저로 자르면서 큰바 수만큼 추가
+        elif bracket[i] == ')' and bracket[i-1] == ')': #빠지면서 스택 빠짐
+            stack.pop()
 
-    for n in range(N):
-        route_start, route_end = map(int, input().split()) # n번 노선 정류장 처음과 끝
-
-        for i in range(route_start, route_end+1):
-            empty_lst[n][i] += 1 #n번 노선 다니는 정류장을 1로 바꾸기
-
-    cp_stop = int(input()) #비교 할 노선 갯수
-    result = [] #최종 값 저장
-    # cnt_stop = [0] * 5001  # n번 노선이 cp_stop을 지나면 카운트 할 리스트 이거 여기있으면 초기화 안되서 중복 값이 들어가면 지랄남
-
-    for stop in range(cp_stop): #cp_stop 만큼 no_stop input 받아오기
-        cnt_stop = [0] * 5001  # n번 노선이 cp_stop을 지나면 카운트 할 리스트
-        no_stop = int(input()) #비교 할 노선 번호
-
-        for i in range(N): #노선 번호 가지고 오기
-            if empty_lst[i][no_stop] == 1: #i번 노선에 no_stop이 지나가면
-                cnt_stop[no_stop] += 1 # cnt_stop에 카운트
-
-        result += [cnt_stop[no_stop]] #12개 중 5개 맞음.. 왜 ???
-
-    # for i in range(5001): #0 제외 하고 result에 넣기 #0개 맞음 no_stop이 노선 안에 안지나가면 0 출력 해야함
-    #     if cnt_stop[i] != 0:
-    #         result += [cnt_stop[i]]
-
-    print('#{}'.format(tc), end=' ')
-    print(*result)
-
-
+    print("#{} {}".format(tc, cnt_bar))

@@ -61,9 +61,8 @@ for tc in range(1, T+1):
             empty_list += [puzzle[i][j]]
         cp_list += [empty_list]
 
-
     result = 0
-    for i in range(N+N): #cp_list 인덱스 접근
+    for i in range(N+N): #cp_list 인덱스 접근 ex)N =5 면 10개
         cnt_one = 0
 
         for j in range(N):

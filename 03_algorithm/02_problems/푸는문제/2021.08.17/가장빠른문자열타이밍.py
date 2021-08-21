@@ -41,14 +41,14 @@ for tc in range(1, T+1):
     #             cnt += 1
 
     jump_idx = 0
-    for i in range(fst_len - snd_len + 1):
+    for i in range(fst_len - snd_len + 1): #
         # jump_idx = 0
         if fst_len <= (i + jump_idx): #글자 크기 넘어가면 break
             break
         # 같으면 카운트, index jump
         if fst_str[i + jump_idx:i + snd_len + jump_idx] == snd_str:
             cnt += 1
-            jump_idx += (snd_len - 1)
+            jump_idx += (snd_len - 1) #snd_len 만큼
         #틀리면 카운트만
         else:
             cnt += 1

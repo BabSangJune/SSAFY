@@ -27,7 +27,7 @@ ABA도 회문이며, ABBA도 회문이다. A또한 길이 1짜리 회문이다.
 for tc in range(1, 11):
     tc = int(input())
     N = 100
-    result = 1
+    result = 1 #A도 1짜리 회문이니까
 
     #가로줄 확인
     arr_r = []
@@ -37,20 +37,20 @@ for tc in range(1, 11):
         for i in range(N, result, -1): #뒤에서 부터 접근
             if result > i: #result가 i보다 크면 더 실행 할 필요 없으므로 break
                 break
-            for j in range(N-i+1): #100 - 99 + 1 = 2
-                if arr[j:i+j] == arr[j:i+j][::-1]:
+            for j in range(N-i+1): #100 - 100 + 1 = 1, 100 - 99 + 1 = 2(0, 1)
+                if arr[j:i+j] == arr[j:i+j][::-1]: #0:100, 0:99(1:100)
                     if len(arr[j:i+j]) > result:
                         result = len(arr[j:i+j])
 
     #세로줄 확인
     c_lst = []
-    c_sub_lst = ''
+    c_sub_lst = '' #문자열 만들어서
     for i in range(N):
         for j in arr_r:
             c_sub_lst += j[i]
 
-        c_lst.append(c_sub_lst)
-        c_sub_lst =''
+        c_lst.append(c_sub_lst) #문자열 리스트 넣기
+        c_sub_lst ='' #문자열 초기화
 
 
     for c_data in c_lst:
