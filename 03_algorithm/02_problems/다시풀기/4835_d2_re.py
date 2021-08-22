@@ -33,42 +33,35 @@ v 12\345\
 #2 11088
 #3 1090
 """
+'''
+전체 N개에서 M개의 구간합을 너무 더하고 가장 큰값, 가장 작은값의 차 구하기
+버블 정렬 연습
+'''
 
 
-def My_max_num(nums):
-    max_num = nums[0]
-    for num in nums:
-        if num > max_num:
-            max_num = num
-    return max_num
-
-def My_min_num(nums): #min 함수
-    min_num = nums[0]
-    for num in nums:
-        if num < min_num:
-            min_num = num
-    return min_num
+def bubble(nums):  # 버블 정렬
+    # nums 인덱스 가지고오기 한바퀴 돌면 맨 뒤에꺼 필요없으니..뒤부터, 맨앞 인덱스(0)는 필요없음
+    for i in range(len(nums) - 1, 0, -1):
+        for j in range(0, i):  # 이제는 앞에서부터 처음 가지고 오는 인덱스 처음(0, 9)
+            if nums[j] > nums[j + 1]:  # 앞에 숫자가 크면 뒤랑 바꾸기
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]
 
 
 T = int(input())
 
-for tc in range(1, T+1):
-    n, m = map(int, input().split())
+for tc in range(1, T + 1):
+    N, M = map(int, input().split())  # N = 정수 갯수 M = 구간 갯수
     nums = list(map(int, input().split()))
-    list_nums = []
-    result = []
 
-    for i in range(n):
-        total = 0
+    tot_nums = []
+    for i in range(0, N - M + 1):
+        cnt = 0
+        for j in range(M):
+            cnt += nums[i + j]
+        tot_nums += [cnt]
 
-        for j in nums[i : i+m]:
-            total += j
+    bubble(tot_nums)
 
-        list_nums += [total]
-        result = list_nums[0:len(list_nums)-m+1]
+    result = tot_nums[-1] - tot_nums[0]
 
-    max_num = My_max_num(result)
-
-    min_num = My_min_num(result)
-
-    print('#{} {}'.format(tc, max_num-min_num))
+    print('#{} {}'.format(tc, result))

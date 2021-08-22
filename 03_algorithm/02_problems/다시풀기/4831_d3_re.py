@@ -34,65 +34,32 @@ A도시는 전기버스를 운행하려고 한다. 전기버스는 한번 충전
 #2 0
 #3 4
 """
-# T = int(input())
-#
-# for tc in range(1, T+1):
-#     K, N, M = map(int, input().split())
-#     charge_station = list(map(int, input().split()))
-#     empty_list = []
-#     tot_bus_stop = [0] * (N+1)
-#     start = 0
-#
-#
-#     for i in charge_station:
-#         tot_bus_stop[i] += 1
-#
-#     for i in range(N+1):
-#         empty_list = []
-#         for j in tot_bus_stop[i+start : i+start+K]:
-#             empty_list += [j]
-#             start = K
-#
-#         print(empty_list)
-
-
-#양쌤 풀이
-
-T= int(input())
+T = int(input())
 
 for tc in range(1, T+1):
-    #K: 버스 이동 할 수 있는 거리
-    #N: 마지막 종점의 위치 (0번 정류장 출발)
-    #M: 충전소의 개수
-    K, N, M = map(int, input().split())
-
+    K, N, M = map(int, input().split()) #K :충전시 이동 수 , N : 종점, M : 충전기 갯수
     charge = list(map(int, input().split()))
-    bus_stop = [0] * (N+1)
+    lst_stop = [0] * (N+1) #0~N까지
+    cnt = 0 #충전 횟수
 
-    for i in charge:
-        bus_stop[i] = 1
+    for i in charge: #idx는 정류장 번호, 1은 충전소 있음
+        lst_stop[i] += 1
 
-    for i in range(M):
-        bus_stop[charge[i]] = 1
-
-    bus_idx = 0 #버스의 위치
-    ans = 0
-
+    start_idx = 0
+    cnt = 0
     while True:
-        bus_idx += K
-        if bus_idx >= N: break #종점 도착 or 지나면 끝
-
-        for i in range(bus_idx, bus_idx - K, -1):
-            #if bus_stop[i] == 1:
-            if bus_stop[i]:
-                ans += 1
-                bus_idx = i
-                break
-
-        else:
-            ans = 0
+        start_idx += K #구간 나눴을때 뒤에서 부터 접근하기 위해
+        if start_idx >= N: #idx 시작이 종점이라면 while 끝
             break
 
-    print('#{} {}'.format(tc, ans))
+        for i in range(start_idx, start_idx - K, -1): #구간 뒤에서 부터 접근
+            if start_idx[i] == 1: #뒤에서부터 충전소 있으면
+                cnt += 1 # 충전 횟수 더하기
+                start_idx = i #시작 지점을 충전소 있는 곳으로
+                break #for 문 나가서 while 부터 시작
+        
+        else:
+            ans = 0 #중간에 충전 지점이 끊기면
+            break # 끝
 
-
+    print('#{} {}'.format(tc, cnt))
