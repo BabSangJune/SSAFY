@@ -55,7 +55,10 @@ for i in range(len(st_lst)):
     if st_lst[i][0] == 1:  # 학생이 남자일때
         cnt = 1
         while (st_lst[i][1] * cnt) < N:
-            switch[st_lst[i][1] * cnt] = 1
+            if switch[st_lst[i][1] * cnt] == 1:
+                switch[st_lst[i][1] * cnt] = 0
+            if switch[st_lst[i][1] * cnt] == 0:
+                switch[st_lst[i][1] * cnt] = 1
             cnt += 1
 
     if st_lst[i][0] == 2:  # 여자일때
@@ -77,6 +80,6 @@ for i in range(len(st_lst)):
                     switch[start], switch[end] = 1, 1
                 else:
                     switch[start], switch[end] = 0, 0
-
+switch.pop(0)
 print(*switch)
 
