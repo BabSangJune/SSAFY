@@ -33,7 +33,8 @@
 첫째 줄에는 스위치 개수가 주어진다. 스위치 개수는 100 이하인 양의 정수이다. 둘째 줄에는 각 스위치의 상태가 주어진다.
 켜져 있으면 1, 꺼져있으면 0이라고 표시하고 사이에 빈칸이 하나씩 있다. 셋째 줄에는 학생수가 주어진다. 학생수는 100 이하인 양의 정수이다.
 넷째 줄부터 마지막 줄까지 한 줄에 한 학생의 성별, 학생이 받은 수가 주어진다. 남학생은 1로, 여학생은 2로 표시하고,
-학생이 받은 수는 스위치 개수 이하인 양의 정수이다. 학생의 성별과 받은 수 사이에 빈칸이 하나씩 있다.v
+학생이 받은 수는 스위치 개수 이하인 양의 정수이다. 학생의 성별과 받은 수 사이에 빈칸이 하나씩 있다.
+
 [출력]
 스위치의 상태를 1번 스위치에서 시작하여 마지막 스위치까지 한 줄에 20개씩 출력한다.
 예를 들어 21번 스위치가 있다면 이 스위치의 상태는 둘째 줄 맨 앞에 출력한다. 켜진 스위치는 1,
@@ -54,10 +55,10 @@ st_lst = [list(map(int, input().split())) for _ in range(M)]  # 학생 상태 [i
 for i in range(len(st_lst)):
     if st_lst[i][0] == 1:  # 학생이 남자일때
         cnt = 1
-        while (st_lst[i][1] * cnt) < N:
+        while (st_lst[i][1] * cnt) < N+1:
             if switch[st_lst[i][1] * cnt] == 1:
                 switch[st_lst[i][1] * cnt] = 0
-            if switch[st_lst[i][1] * cnt] == 0:
+            elif switch[st_lst[i][1] * cnt] == 0:
                 switch[st_lst[i][1] * cnt] = 1
             cnt += 1
 
@@ -71,7 +72,7 @@ for i in range(len(st_lst)):
             switch[st_lst[i][1]] = 0
 
         cnt = 1
-        while 1 < start < N and 1 < end < N:
+        while 0 < start-cnt < N+1 and 0 < end+cnt < N+1:
             start -= cnt
             end += cnt
 
@@ -80,6 +81,12 @@ for i in range(len(st_lst)):
                     switch[start], switch[end] = 1, 1
                 else:
                     switch[start], switch[end] = 0, 0
+            else:
+                break
+
 switch.pop(0)
-print(*switch)
+i = 0
+while i <= N:
+    print(*switch[i:i+20])
+    i += 20
 

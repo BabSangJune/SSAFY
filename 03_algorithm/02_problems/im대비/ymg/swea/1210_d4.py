@@ -27,6 +27,10 @@ X=0인 출발점에서 출발하는 사례에 대해서 화살표로 표시한 �
 #부호와 함께 테스트 케이스의 번호를 출력하고, 공백 문자 후 도착하게 되는 출발점의 x좌표를 출력한다.
 """
 
+import sys
+
+sys.stdin = open("1210.txt", 'r')
+
 for _ in range(1, 11):
     tc = int(input())
     ladder = [list(map(int, input().split())) for _ in range(100)]
@@ -34,39 +38,30 @@ for _ in range(1, 11):
     dr = [-1, 1, 0, 0]
     dc = [0, 0, -1, 1]
 
-    posi_pass = 0
-
-    for i in range(100):  # 뒤에서 부터 접근
-        if ladder[-1][i] == 2:
-            start = i  # 시작 열 idx
-
     r = 99
-    c = start
+    c = 0
 
-    while r != 0:  # 행이 0 이 아니면 실행 (위로 올라가니까 0되면 멈춘다)
+    for j in range(100): #시작 지점 찾기
+        if ladder[99][j] == 2:
+            c = j
 
-        if 0 < (c - 1) <= 99 and ladder[r][c - 1] == 1:
+    while r > 0:
+        ladder[r][c] = 0
 
-            while 0 < (c - 1) <= 99 and ladder[r][c - 1] > 0:
-                ladder[r][c] = posi_pass
-                c = c + dc[2]
+        #왼쪽
+        if 0 <= c-1 < 100 and ladder[r][c-1] == 1:
+            c = c + dc[2]
 
+        #오른쪽
+        elif 0 <= c+1 < 100 and ladder[r][c+1] == 1:
+            c = c + dc[3]
 
-        # 오른쪽
-        if 0 < (c + 1) <= 99 and ladder[r][c + 1] == 1:
-
-            while 0 < (c + 1) <= 99 and ladder[r][c + 1] > 0:
-                ladder[r][c] = posi_pass
-                c = c + dc[3]
-
-        # 위로 이동
-        # if ladder[r - 1][c] == 1 and 0 < r <= 100:  # 현 위치에서 위에 확인
-        #     while ladder[r - 1][c] > 0 :  # 0보다 크면
-        #         ladder[r][c] = posi_pass  # 현위치 0으로 바꾸고
-        #         r = r + dr[0]  # 위로 이동
-        #         break
-        r = r + dr[0]
+        else:
+            r = r + dr[0]
 
     print('#{} {}'.format(tc, c))
+
+
+    
 
 
