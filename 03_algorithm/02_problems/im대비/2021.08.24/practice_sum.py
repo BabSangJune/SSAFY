@@ -36,9 +36,9 @@ for tc in (1, T + 1):
         tots.append(tot)
     tot = 0
     for i in range(len(arr)):
-        tot += arr[i][i]
+        tot += arr[i][]
 
     tots.append(tot)
 
     for i in range(len(arr)):
-        if 
+        if i

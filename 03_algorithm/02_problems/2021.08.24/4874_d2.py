@@ -1,55 +1,60 @@
 """
 날짜 : 2021.08.24
 학습 : SWEA D2
-제목 : 4875. [파이썬 S/W 문제해결 기본] 5일차 - 미로
+제목 : 4874. [파이썬 S/W 문제해결 기본] 5일차 - Forth
 문제 :
-NxN 크기의 미로에서 출발지에서 목적지에 도착하는 경로가 존재하는지 확인하는 프로그램을 작성하시오. 도착할 수 있으면 1, 아니면 0을 출력한다.
-주어진 미로 밖으로는 나갈 수 없다.
-다음은 5x5 미로의 예이다.
-13101
-10101
-10101
-10101
-10021
-마지막 줄의 2에서 출발해서 0인 통로를 따라 이동하면 맨 윗줄의 3에 도착할 수 있는지 확인하면 된다.
+Forth라는 컴퓨터 언어는 스택 연산을 기반으로 하고 있어 후위 표기법을 사용한다. 예를 들어 3+4는 다음과 같이 표기한다.
+Forth에서는 동작은 다음과 같다.
+숫자는 스택에 넣는다.
+연산자를 만나면 스택의 숫자 두 개를 꺼내 더하고 결과를 다시 스택에 넣는다.
+‘.’은 스택에서 숫자를 꺼내 출력한다.
+Forth 코드의 연산 결과를 출력하는 프로그램을 만드시오. 만약 형식이 잘못되어 연산이 불가능한 경우 ‘error’를 출력한다.
+다음은 Forth 연산의 예이다.
 
 [입력]
-첫 줄에 테스트 케이스 개수 T가 주어진다.  1<=T<=50
-다음 줄부터 테스트 케이스의 별로 미로의 크기 N과 N개의 줄에 걸쳐 미로의 통로와 벽에 대한 정보가 주어진다. 0은 통로, 1은 벽, 2는 출발, 3은 도착이다. 5<=N<=100
+첫 줄에 테스트 케이스 개수 T가 주어진다.  1≤T≤50
+다음 줄부터 테스트 케이스의 별로 정수와 연산자가 256자 이내의 연산코드가 주어진다. 피연산자와 연산자는 여백으로 구분되어 있으며, 코드는 ‘.’로 끝난다.
+나눗셈의 경우 항상 나누어 떨어진다.
 
 [출력]
-각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 계산결과를 정수로 출력하거나 또는 ‘error’를 출력한다.
+#과 1번부터인 테스트케이스 번호, 빈칸에 이어 계산결과를 정수로 출력하거나 또는 ‘error’를 출력한다.
 
 """
 
 T = int(input())
-for tc in range(1, T + 1):
-    N = int(input())
-    maze = [list(map(int, input())) for _ in range(N)]
+for tc in range(1, T+1):
+    formula = list(input().split())
+    formula.pop() #마지막 . 그냥 빼버림
+    arithmetic = ['+', '-', '*', '/']
 
-    # 0상, 1하, 2좌, 3우
-    dr = [-1, 1, 0, 0]
-    dc = [0, 0, -1, 1]
+    result = []
 
-    visit = 0
+    for i in formula: #토큰 하나씩 가지고와서
+        if i in arithmetic: #토큰이 연산자면
+            try: #일단 실행
+                num2 = result.pop() #연산 순서 처음 빼는놈을 뒤로
+                num1 = result.pop()
 
-    start = 0
-    for i in range(0, N + 1):
-        if maze[-1][i] == 2:
-            start = i
-            break
+                if i == '*':
+                    result.append(num1 * num2)
+                elif i == '/':
+                    result.append(num1 // num2) #나누어 떨어지기에 //
+                elif i == '+':
+                    result.append(num1 + num2)
+                elif i == '-':
+                    result.append(num1 - num2)
 
-    r = N - 1
-    c = start
-    stack = []
+            except: #오류나면 ?
+                result += ['error'] #에러야
 
-    stack.append([r, c])
+        else: #나머지는 result에 넣기
+            result.append(int(i))
 
-    while stack:
-        # up 0
-        if 0 < r <= 0 and maze[r - 1][c] == 0:
-            while 0 < (r - 1) <= N and maze[r - 1] == 0:
-                if
+    if len(result) != 1:
+        result = ['error']
 
-                r = r + dr[0]
-                stack.append([r, c])
+
+    print('#{} {}'.format(tc, result[0]))
+
+
+
