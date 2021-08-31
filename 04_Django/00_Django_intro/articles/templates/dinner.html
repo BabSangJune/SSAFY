@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>오늘 저녁은 ???</h1>
+  <h3>후보는 {{ foods|join:"랑 " }}으로 {{ food|length }} 개</h3>
+  <h3>{{ pick }}을 먹겠다.!!!!!!!</h3>
+
+  <h2>메뉴</h2>
+
+{% endblock content %}

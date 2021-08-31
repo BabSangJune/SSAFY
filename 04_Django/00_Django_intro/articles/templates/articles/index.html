@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>드디어 첫 페이지로구만!!!</h1>
+
+  {% comment %} 너무 하드하다. {% endcomment %}
+  {% comment %} <a href="/articles/greeting/">인사하는곳으로</a>
+  <a href="/articles/throw/">메시지던지러가자</a>
+  <a href="/articles/dinner/">오늘저녁은 무엇</a> {% endcomment %}
+
+  <a href="{% url 'articles:greeting'%}">인사하는곳으로</a>
+  <a href="{% url 'articles:throw' %}">메시지던지러가자</a>
+  <a href="{% url 'articles:dinner' %}">오늘저녁은 무엇</a>
+
+  <a href="{% url 'pages:index' %}">두번쨰 앱의 인덱스로 가자</a>
+{% endblock content %}
+
+
+ 

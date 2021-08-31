@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% comment %} <h1>1. for</h1>
+  {% for food in foods %}
+    <p>{{ food }}</p>
+  {% endfor %} {% endcomment %}
+
+  <hr>
+
+  {% for user in user_list %}
+    <p>{{ user }}</p>
+  {% empty %}
+    <p>지금 가입한 유저가 없다</p>
+  {% endfor %}
+  
+  <hr>
+
+  <h1> 2. if </h1>
+  {% if 'apple' in fruits %}
+    <p>사과 들어 있음</p>
+  {% endif %}
+
+  <hr>
+
+  {% for fruit in fruits %}
+    {% if forloop.first %}
+      <p>애플+{{ fruit }}</p>
+    {% else %}
+     <p>{{ fruit }}</p>
+    {% endif %}
+  {% endfor %}
+
+    {% for fruit in fruits %}
+    {% if fruit|length > 5 %}
+      <p>이름이 너무 길다.</p>
+    {% else %}
+      <p>{{ fruit }}{{ fruit|length }}</p>
+    {% endif %}
+  {% endfor %}
+
+  <h1> 4. lorem </h1>
+  {% lorem %}
+
+  <hr>
+
+  {% lorem 3 w random %}
+
+  <hr>
+
+  {% lorem 3 b random %}
+
+  <hr>
+
+  {% lorem 3 p random %}
+
+  <h1> 5. 글자 필터 </h1>
+  <p>{{ 'ABC'|lower }}</p>
+  <p>{{ 'i am a boy' }}</p>
+  <p>{{ 'my FIRST POST'|title }}</p>
+  <p>{{ foods|random }}</p>
+
+  <h1> 6. 연산 </h1>
+  <p> {{ 4|add:6 }} </p>
+
+  <h1> 7. 날짜 표현 </h1>
+  {% now "DATE_FORMAT" %}
+  <hr>
+  {% now "DATETIME_FORMAT" %}
+  <hr>
+  {% now "SHORT_DATE_FORMAT" %}
+  <hr>
+  {% now "SHORT_DATETIME_FORMAT" %}
+  <hr>
+  {% now "Y-m-d H:i" %}
+  
+{% endblock content %}
+  
+{% for post in posts %}
+  <p> {{ (a)___ }}번 글 : {{ post }} </p>
+{% endfor %}
+
+

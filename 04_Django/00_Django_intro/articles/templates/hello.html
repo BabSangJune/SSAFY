@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>인사~~~</h1>
+  <p> 안녕하세요... 저는 {{ info.name }} 입니다. </p>
+  <p> 제 취미는 {{ info.hobby }}</p>
+  <p> 오늘 먹을 점심리스트는 {{ foods }}입니다.</p>
+  <p> 그중에 오늘은 {{ foods.1 }}을 먹겠습니다.</p>
+{% endblock content %}

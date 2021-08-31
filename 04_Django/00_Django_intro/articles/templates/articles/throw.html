@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>던져던져 다던져</h1>
+
+  {% comment %} /의 의미를 잘 파악할것 {% endcomment %}
+  <form action="{% url 'articles:catch' %}" method="GET">
+    <label for="message">Throw</label>
+    <input type="text" name="message" id="message">
+    <input type="submit">
+  </form>
+{% endblock content %}
+
+
