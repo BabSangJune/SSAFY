@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}board{% endblock title %}
+
+{% block content %}
+<h1>board</h1>
+
+  <a href="{% url 'stuffs:create' %}">[CREATE]</a>
+  <hr>
+  {% for stuff in stuffs %}
+    <p>글 번호 : {{ stuff.pk }}</p>
+    <p>글 제목 : {{ stuff.title }}</p>
+    <p>글 내용 : {{ stuff.content }}</p>
+    <a href="{% url 'stuffs:detail' stuff.pk %}">[DETAIL]</a>
+    <hr>
+  {% endfor %}
+
+{% endblock content %}

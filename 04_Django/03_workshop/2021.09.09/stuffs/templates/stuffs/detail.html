@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}디테일{% endblock title %}
+
+{% block content %}
+{% comment %} img 기본 {% endcomment %}
+  <h2>DETAIL</h2>
+  <h3>{{ stuff.pk }} 번째 글</h3>
+  {% if stuff.image %}
+  <img src="{{ stuff.image.url }}" alt="{{ stuff.image }}">
+  {% else %}
+  <h3>이미지 없음</h3>
+  {% endif %}
+  <hr>
+  <p>제목 : {{ stuff.title }}</p>
+  <p>내용 : {{ stuff.content }}</p>
+  <p>작성시각 : {{ stuff.created_at }}</p>
+  <p>수정시각 : {{ stuff.updated_at }}</p>
+  <hr>
+  <a href="{% url 'stuffs:update' stuff.pk %}">[UPDATE]</a>
+  <form action="{% url 'stuffs:delete' stuff.pk %}" method="POST">
+    {% csrf_token %}
+    <button>DELETE</button>
+  </form>
+  <a href="{% url 'stuffs:board' %}">[back]</a>
+{% endblock content %}
