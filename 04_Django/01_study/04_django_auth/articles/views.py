@@ -40,11 +40,12 @@ def detail(request, pk):
     return render(request, 'articles/detail.html', context)
 
 
-@login_required
+# @login_required
 @require_POST
 def delete(request, pk):
-    article = get_object_or_404(Article, pk=pk)
-    article.delete()
+    if request.user.is_authenticated:
+        article = get_object_or_404(Article, pk=pk)
+        article.delete()
     return redirect('articles:index')
 
 
