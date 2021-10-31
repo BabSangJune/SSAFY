@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% comment %} 변수화 가능 {% with followings=person.following.all %}{% endwith %} {% endcomment %}
+  <h1>{{ person.username }}의 프로필 페이지</h1>
+  <div>
+    <div>팔로잉 수: {{ person.following.all|length }} / 팔로워 수 : {{ person.followers.all|length }}</div>
+  </div>
+  <div>
+    <form action="{% url 'accounts:follow' person.pk %}" method="POST">
+      {% csrf_token %}
+      {% if user in person.follwers.all %}
+        <input type="submit" value="언팔로우" name="" id="">
+      {% else %}
+        <input type="submit" value="팔로우" name="" id="">
+      {% endif %}
+    </form>
+  </div>
+
+  <hr>
+
+  <h2>{{ person.username }}가 작성한 게시글</h2>
+  {% for article in person.article_set.all %}
+    <div>{{ article.title }}</div>
+  {% endfor %}
+
+  <hr>
+
+  <h2>{{ person.username }}가 작성한 댓글</h2>
+  {% for comment in person.comment_set.all %}
+    <div>{{ comment.content }}</div>
+    {% comment %} <div>{{ comment.article }}</div> {% endcomment %}
+  {% endfor %}
+
+  <hr>
+
+  <h2>{{ person.username }}가 좋아요 누른 게시글</h2>
+  {% for article in person.like_articles.all %}
+    <div>{{ article.title }}</div>
+  {% endfor %}
+  <hr>
+  <a href="{% url 'articles:index' %}">[back]</a>
+
+{% endblock content %}
