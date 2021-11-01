@@ -29,7 +29,6 @@ const arr1 = ['www', 'samsung', 'com']
 const arr2 = ['galaxy', 'buds', 'pro']
 const arr3 = ['sec', 'buds']
 
-
 /*
 	[배열 관련 주요 메서드 연습 3]
 
