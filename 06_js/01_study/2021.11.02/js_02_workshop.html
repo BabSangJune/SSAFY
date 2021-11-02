@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .done {
+      text-decoration: line-through;
+    }
+  </style>
+</head>
+<body>
+  <form action="/todos/">
+    <input type="text">
+    <button>Todo</button>
+  </form>
+  <ul></ul>
+
+<script>
+  const form = document.querySelector('form')
+
+  function addTodo (event) {
+    // 이벤트를 취소한다.
+    event.preventDefault()
+
+    //ul element를 찾아서 저장
+    const ul = document.querySelector('ul')
+
+    // 입력 element를 찾고 해당 입력 element의 value 값을 저장한다.
+    const input = document.querySelector('input')
+    const content = input.value
+    
+    // 등록하면 초기화
+    input.value = null
+
+    // 빈값을 허용하지 x
+    if (content.trim()){
+      // li element를 생성 후 input element의 value 값을 데이터로 저장한다
+      const li = document.createElement('li')
+      li.innerText = content
+      
+      
+      // 삭제 버튼을 생성 후 li 태그의 자식 태그로 넣는다.
+      const deleteBtn = document.createElement('button')
+      deleteBtn.innerText = 'X'
+      li.appendChild(deleteBtn)
+      
+      // 삭제 버튼을 클릭하면 해당 li element를 삭제한다
+      deleteBtn.addEventListener('click', function (){
+        li.remove()
+      })
+      
+      // li element를 클릭하면 취소선이 토글된다. 토글은 스위치에 on/off
+      // 1. length 이용한 방법
+      // li.addEventListener('click', function (event) {
+      //   if (event.target.classList.length) {
+      //     event.target.classList.remove('done')
+      //     console.log(event.target.classList)
+      //   } else {
+      //     event.target.classList.add('done')
+      //     console.log(event.target.classList)
+      //   }
+      // })
+  
+      // 2. contains()
+      // li.addEventListener('click', function (event) {
+      //   if (event.target.classList.contains('done')){
+      //     event.target.classList.remove('done')
+      //   } else {
+      //     event.target.classList.add('done')
+      //   }
+      // })
+  
+      // 3. toggle() 
+      li.addEventListener('click', function (event) {
+        event.target.classList.toggle('done')
+      })
+  
+      // ul 태그의 자식 태그로 위에서 생성한 li element를 넣는다.
+      ul.appendChild(li)
+    } else {
+      // 빈값 입력시 팝업창 출력
+      alert('일을 입력 안했어~~~')
+    }
+  }
+
+  //submit 이벤트가 발생했을때 addTodo 실행시켜줘~~~
+  form.addEventListener('submit', addTodo)
+</script>
+</body>
+</html>
