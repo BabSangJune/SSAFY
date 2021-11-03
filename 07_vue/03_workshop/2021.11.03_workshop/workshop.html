@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2021.11.03_workshop</title>
+</head>
+<body>
+  <h2>점심 메뉴</h2>
+  <div id="lunchMenu">
+    <button @click="myLunch">Pick one</button>
+    <div>오늘의 메뉴 : {{ menus }}</div>
+  </div>  
+  <hr>
+
+  <h2>로또 번호</h2>
+  <div id="lottoNums">
+    <button @click="myLotto">Pick nums</button>
+    <div>번호 : {{ nums }}</div>
+    <span>보너스 : {{ bonus }}</span>
+
+
+  </div>
+
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
