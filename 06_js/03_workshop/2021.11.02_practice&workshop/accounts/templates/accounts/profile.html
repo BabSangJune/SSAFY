@@ -65,7 +65,7 @@
       console.log(event)
       const userId = event.target.dataset.userId
       const userName = event.target.dataset.userName
-
+      
 
       axios({
         method: 'post',
@@ -97,12 +97,10 @@
             followerList.push(userName)
             console.log(followerList)
           }
-
+          
           followCountDiv.innerText = `팔로잉 수 : ${followings_count} / 팔로워 수 : ${followers_count}`
         })
     })
-
-
   </script>
   {% endblock script %}
 
