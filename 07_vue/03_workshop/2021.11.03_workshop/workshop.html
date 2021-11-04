@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="style.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,18 +10,32 @@
 <body>
   <h2>점심 메뉴</h2>
   <div id="lunchMenu">
+    <div class="black-bg" v-if="modalLunch == true">
+      <div class="white-bg">
+        오늘의 메뉴 : {{ menus }}
+        <button @click="lunchModalClose">닫기</button>
+      </div>
+    </div>
+
+
     <button @click="myLunch">Pick one</button>
-    <div>오늘의 메뉴 : {{ menus }}</div>
+    <div>메뉴 결정</div>
   </div>  
+
   <hr>
 
   <h2>로또 번호</h2>
   <div id="lottoNums">
+    <div class="black-bg" v-if="modalLotto == true">
+      <div class="white-bg">
+        번호 : {{ nums }}
+        보너스 : {{ bonus }}
+        <button @click="lottoModalClose">닫기</button>
+      </div>
+    </div>
+
     <button @click="myLotto">Pick nums</button>
-    <div>번호 : {{ nums }}</div>
-    <span>보너스 : {{ bonus }}</span>
-
-
+    <div>번호 추첨</div>
   </div>
 
   <!-- scripts -->

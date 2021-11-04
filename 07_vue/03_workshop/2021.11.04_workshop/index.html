@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>2021.11.04_workshop</title>
+</head>
+
+<body>
+  <h1>To do List</h1>
+  <div id="Todo">
+    <div>
+      <select id="state">
+        <option value="all">전체</option>
+        <option value="inProgress">진행</option>
+        <option value="complete">완료</option>
+      </select>
+
+      <input v-model="content" id="todoContent" @input="contentTodo">
+
+      <button @click="todoInput" id="todoInput">+</button>
+    </div>
+  
+    <ul id="listTodo">
+      <li :class="{ done: todo.isOk }" v-for="(todo, index) in todos" :key="index">{{ todo.content }}<input v-model="todo.isOk" type="checkbox"></li>
+    </ul>
+
+
+    </div>
+
+    <div>
+      <button>완료된 할 일 지우기</button>
+    </div>
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
